@@ -17,7 +17,7 @@ public class TimeOutTest {
             System.out.println(arrayBlockingQueue.poll(2, TimeUnit.SECONDS));
             System.out.println(arrayBlockingQueue.poll(2, TimeUnit.SECONDS));
             Thread.sleep(1000);
-            arrayBlockingQueue.offer("3");
+//            arrayBlockingQueue.offer("3");
             System.out.println(arrayBlockingQueue.poll(2, TimeUnit.SECONDS));
         } catch (InterruptedException e) {
             e.printStackTrace();

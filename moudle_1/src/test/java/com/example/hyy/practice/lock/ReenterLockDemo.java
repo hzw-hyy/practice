@@ -17,7 +17,7 @@ public class ReenterLockDemo {
         }, "t1").start();
         new Thread(() -> {
             try {
-                phone.sendSms();
+                phone.sendEmail();
             } catch (Exception e) {
                 e.printStackTrace();
             }

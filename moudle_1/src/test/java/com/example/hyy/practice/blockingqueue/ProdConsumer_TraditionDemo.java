@@ -66,7 +66,7 @@ class ShareData {// 资源类
             number++;
             System.out.println(Thread.currentThread().getName() + "\t" + number);
             // 3.通知
-            condition.signalAll();
+            condition.signal();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
@@ -86,7 +86,7 @@ class ShareData {// 资源类
             number--;
             System.out.println(Thread.currentThread().getName() + "\t" + number);
             // 3.通知
-            condition.signalAll();
+            condition.signal();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {

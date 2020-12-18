@@ -34,11 +34,11 @@ public class ProdConsumer_BlockingQueueDemo {
         }, "Consumer").start();
 
         try {
-            TimeUnit.SECONDS.sleep(1L);
+            TimeUnit.SECONDS.sleep(5L);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("1s later,main thread end");
+        System.out.println("5s later,main thread end");
         try {
             myResource.stop();
         } catch (Exception e) {
@@ -68,7 +68,7 @@ class MyResource {
                 System.out.println(Thread.currentThread().getName() + "\t offer " + data + " success ");
             else
                 System.out.println(Thread.currentThread().getName() + "\t offer " + data + " false ");
-//            TimeUnit.SECONDS.sleep(1);
+            TimeUnit.SECONDS.sleep(1);
         }
         System.out.println(Thread.currentThread().getName() + "\t prod end");
     }

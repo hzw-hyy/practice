@@ -15,9 +15,9 @@ public class CyclicBarrierDemo {
         CyclicBarrier cyclicBarrier0 = new CyclicBarrier(2);
         System.out.println("init parties: " + cyclicBarrier0.getParties());
         System.out.println("init numwait: " + cyclicBarrier0.getNumberWaiting());
+        cyclicTest(cyclicBarrier0, 0);
         cyclicTest(cyclicBarrier0, 1);
         cyclicTest(cyclicBarrier0, 2);
-        cyclicTest(cyclicBarrier0, 3);
     }
 
 

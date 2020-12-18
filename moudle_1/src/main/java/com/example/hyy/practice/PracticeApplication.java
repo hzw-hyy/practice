@@ -3,6 +3,9 @@ package com.example.hyy.practice;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author 18845
+ */
 @SpringBootApplication
 public class PracticeApplication {
 
