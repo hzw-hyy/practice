@@ -12,10 +12,10 @@ public class CompareDemo {
     public static void main(String[] args) {
 
         ArrayList<Person> peoples = new ArrayList<>();
-        peoples.add(new Person("liubei","22","m"));
-        peoples.add(new Person("guanyu","23","m"));
-        peoples.add(new Person("zhangfei","21","m"));
-        peoples.add(new Person("sunshangxiang","21","w"));
+        peoples.add(new Person("liubei", "22", "m"));
+        peoples.add(new Person("guanyu", "23", "m"));
+        peoples.add(new Person("zhangfei", "21", "m"));
+        peoples.add(new Person("sunshangxiang", "21", "w"));
         Collections.sort(peoples);
         System.out.println(peoples.toString());
 
