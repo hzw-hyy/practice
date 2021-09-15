@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Random;
 
 /**
- * ¿ìËÙÅÅĞò
+ * å¿«é€Ÿæ’åº
  *
  * @author xq
  */
@@ -28,20 +28,20 @@ public class QuickSort {
         // 2, 7, 6, 8, 1, 4, 9, 0, 3, 5, 2, 7, 6, 8, 1, 4, 9, 0, 3, 5, 2, 7, 6,
         // 8, 1, 4, 9, 0, 3, 5, 2, 7, 6 };
         quickSort(a, 0, a.length - 1);
-        System.out.println("over±Èİ^´Î”µ" + count);
+        System.out.println("overæ¯”è¼ƒæ¬¡æ•¸" + count);
     }
 
     public static Integer[] getRanDomNum(int n) {
         Integer[] arr = new Integer[n];
         // java.util.Scanner sc = new java.util.Scanner(System.in);
-        // System.out.println("ÇëÊäÈë£¬Ö»ÄÜÎªÊı×Ö");
+        // System.out.println("è¯·è¾“å…¥ï¼Œåªèƒ½ä¸ºæ•°å­—");
         try {
             for (int i = 0; i < arr.length; i++) {
                 arr[i] = (new Random().nextInt(1000) + 1);
             }
             // System.out.println(Arrays.toString(arr));
         } catch (Exception e) {
-            System.err.println("ÊäÈëÓĞÎó!");
+            System.err.println("è¾“å…¥æœ‰è¯¯!");
         }
         // int number = (int) ((Math.random() * 9 + 1) * 100000);
         // System.out.println(number);
@@ -86,7 +86,7 @@ public class QuickSort {
                 while (a[--j].compareTo(pivot) > 0) {
                     count++;
                 }
-                // ¶¨Áx½çÏŞÒò ‘median3·½·¨£¬ËùÒÔa[left]Ò»¶¨Ğ¡ì¶˜Ğ¼~Ôª£¬a[right]Ò»¶¨´óì¶˜Ğ¼~Ôª£¬„tiµÄ¹ ‡úéÏÂ½Ç˜Ëéleftµ½right-1,Í¬Àí„tjµÄ¹ ‡úéÏÂ½Ç˜Ëéleft-1µ½right¡£
+                // å®šç¾©ç•Œé™å› çˆ²median3æ–¹æ³•ï¼Œæ‰€ä»¥a[left]ä¸€å®šå°æ–¼æ¨ç´å…ƒï¼Œa[right]ä¸€å®šå¤§æ–¼æ¨ç´å…ƒï¼Œå‰‡içš„ç¯„åœç‚ºä¸‹è§’æ¨™ç‚ºleftåˆ°right-1,åŒç†å‰‡jçš„ç¯„åœç‚ºä¸‹è§’æ¨™ç‚ºleft-1åˆ°rightã€‚
                 if (i < j && i < right && j > left)
                     swapReferences(a, i, j);
                 else
@@ -101,16 +101,19 @@ public class QuickSort {
     }
 
     public static void swapReferences(Integer[] a, int x, int y) {
-        int temp;
-        temp = a[x];
-        a[x] = a[y];
-        a[y] = temp;
+//        int temp;
+//        temp = a[x];
+//        a[x] = a[y];
+//        a[y] = temp;
+        a[x] = a[x] + a[y];
+        a[y] = a[x] - a[y];
+        a[x] = a[x] - a[y];
     }
 
     @Test
     public void testquickSort() {
         Integer[] a;
-        double z = (Math.pow(2, 8) + 1);
+        double z = (Math.pow(2, 160) + 1);
         // System.out.println(z);
         for (int i = 2; i < z; i = i * 2) {
             a = getRanDomNum(i);
@@ -120,9 +123,11 @@ public class QuickSort {
             this.quickSort(a, 0, a.length - 1);
             Long endTime = System.currentTimeMillis();
 //            System.out.println(endTime);
-            System.out.println("Êı×é³¤¶È£º" + i);
-            System.out.println("over±Èİ^´Î”µ:" + count);
-            System.out.println("¼ÆËãÊ±¼ä£º" + (endTime - beginTime));
+            System.out.println("æ•°ç»„é•¿åº¦ï¼š" + i);
+            System.out.println("overæ¯”è¼ƒæ¬¡æ•¸:" + count);
+            System.out.println("å¼€å§‹æ—¶é—´ï¼š" + beginTime);
+            System.out.println("å¼€å§‹æ—¶é—´ï¼š" + endTime);
+            System.out.println("è€—æ—¶æ—¶é—´ï¼š" + (endTime - beginTime));
 //            System.out.println(Arrays.toString(a));
             System.out.println();
         }
