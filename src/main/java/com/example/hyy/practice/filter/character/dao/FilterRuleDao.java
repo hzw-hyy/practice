@@ -20,4 +20,6 @@ public interface FilterRuleDao extends PlatDao<FilterRuleModel> {
 
     List<FilterRuleModel> selectFilterRule(@Param("filterCharacterPageVo") FilterCharacterPageVo filterCharacterPageVo);
 
+    List<FilterRuleModel> selectFilterRuleTwo();
+
 }

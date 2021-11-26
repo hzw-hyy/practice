@@ -42,7 +42,7 @@ public class ParaCheckService {
         for (FilterRuleModel filterRuleModel : list) {
             List<FilterCharacterModel> filterCharacter = filterRuleModel.getFilterCharacterModels();
             for (FilterCharacterModel ruleModel : filterCharacter) {
-                String character = ruleModel.getFilter_character();
+                String character = ruleModel.getFilterCharacter();
                 if (!patterns.stream().anyMatch(pattern -> pattern.pattern().equalsIgnoreCase(character))) {
                     Pattern pattern = Pattern.compile(character, Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL);
                     patterns.add(pattern);

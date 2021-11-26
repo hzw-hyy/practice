@@ -28,6 +28,11 @@ public class FilterUsePathModel extends BaseModel {
     private String id;
 
     /**
+     * 关联规则Id
+     */
+    private String ruleId;
+
+    /**
      * 过滤路径
      */
     private String usePath;

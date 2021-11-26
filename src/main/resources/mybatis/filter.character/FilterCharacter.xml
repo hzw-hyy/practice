@@ -3,29 +3,35 @@
 
 <mapper namespace="com.example.hyy.practice.filter.character.dao.FilterRuleDao">
     <resultMap id="filterRuleResult" type="com.example.hyy.practice.filter.character.model.FilterRuleModel">
-        <id column="id" property="id"/>
         <result column="rule_code" property="ruleCode"/>
         <result column="rule_name" property="ruleName"/>
-        <result column="remark" property="remark"/>
-        <collection property="filterCharacterModels" column="rule_id"
+        <collection property="filterCharacterModels"
                     ofType="com.example.hyy.practice.filter.character.model.FilterCharacterModel">
-            <id column="id" property="id"/>
-            <result column="filter_character" property="filter_character"/>
-            <result column="remark" property="remark"/>
+            <result column="filter_character" property="filterCharacter"/>
         </collection>
-<!--        <collection property="filterUsePathModels" column="rule_id"-->
-<!--                    ofType="com.example.hyy.practice.filter.character.model.FilterUsePathModel">-->
-<!--            <id column="id" property="id"/>-->
-<!--            <result column="use_path" property="usePath"/>-->
-<!--            <result column="remark" property="remark"/>-->
-<!--        </collection>-->
+        <collection property="filterUsePathModels"
+                    ofType="com.example.hyy.practice.filter.character.model.FilterUsePathModel">
+            <result column="use_path" property="usePath"/>
+        </collection>
     </resultMap>
 
     <select id="selectFilterRule" resultMap="filterRuleResult">
-        select rule_code,rule_name,use_path,filter_character
-        from filter_rule fr
-             join filter_character fc on fr.id = fc.rule_id
---              join filter_user_path fup on fr.id = fup.rule_id
---         where use_path =  #{filterCharacterPageVo.userPath}
+        select rule_code, rule_name, use_path, filter_character
+        from filter_rule fr,
+             filter_character fc,
+             filter_user_path fup
+        where fr.id = fc.rule_id
+        and fr.id = fup.rule_id
+        and use_path =  #{filterCharacterPageVo.userPath}
+    </select>
+
+
+    <select id="selectFilterRuleTwo" resultMap="filterRuleResult">
+        select rule_code, rule_name, use_path, filter_character
+        from filter_rule fr,
+             filter_character fc,
+             filter_user_path fup
+        where fr.id = fc.rule_id
+        and fr.id = fup.rule_id
     </select>
 </mapper>

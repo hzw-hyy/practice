@@ -25,8 +25,13 @@ public class FilterCharacterModel extends BaseModel {
     private String id;
 
     /**
+     * 关联规则Id
+     */
+    private String ruleId;
+
+    /**
      * 过滤字符串
      */
-    private String filter_character;
+    private String filterCharacter;
 
 }
