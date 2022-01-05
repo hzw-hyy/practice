@@ -6,23 +6,18 @@ import java.lang.reflect.Proxy;
 
 public class ProxyFactory {
 
-    // ÔöÇ¿µÄ´úÂëÀà
+    // å¢å¼ºçš„ä»£ç ç±»
     final static Myspect ms = new Myspect();
 
     public static Object createProxy(final Object us) {
 
         Object newProxyInstance = Proxy.newProxyInstance(us.getClass()
                         .getClassLoader(), us.getClass().getInterfaces(),
-                new InvocationHandler() {
-
-                    @Override
-                    public Object invoke(Object proxy, Method method,
-                                         Object[] args) throws Throwable {
-                        ms.pre();// ÔöÇ¿µÄ´úÂë
-                        Object invoke = method.invoke(us, args);
-                        ms.next();// ÔöÇ¿µÄ´úÂë
-                        return invoke;
-                    }
+                (proxy, method, args) -> {
+                    ms.pre();// å¢å¼ºçš„ä»£ç 
+                    Object invoke = method.invoke(us, args);
+                    ms.next();// å¢å¼ºçš„ä»£ç 
+                    return invoke;
                 });
         return newProxyInstance;
     }

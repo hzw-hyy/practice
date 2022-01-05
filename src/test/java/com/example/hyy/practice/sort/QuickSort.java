@@ -69,11 +69,11 @@ public class QuickSort {
 
     public static void quickSort(Integer[] a, int left, int right) {
 
-        while (left >= right) {
+        if (left >= right) {
             // System.out.println("dj");
             return;
         }
-        if (right - left <= 2)
+        if (right - left < 4)
             median3(a, left, right);
         else {
             Integer pivot = median3(a, left, right);
@@ -91,7 +91,6 @@ public class QuickSort {
                     swapReferences(a, i, j);
                 else
                     break;
-
             }
             swapReferences(a, i, right - 1);
             quickSort(a, left, i - 1);
